@@ -1,0 +1,9 @@
+Credit Data
+_______________________________
+
+0.8720 - Base line classifier
+0.9379 - Naive Bayes (inconsistentes + falantes + escalonamento)
+0.9819 - Árvore de decisão (inconsistentes + falantes + escalonamento) 
+0.9839 - Random forest n_estimators = 40 (inconsistentes + falantes + escalonamento)
+0.9700 - CN2 (sem pré-processamento)
+0.9860 - KNN (inconsistentes + falantes + escalonamento)
