@@ -29,3 +29,8 @@ ___________________________
 0.7954 - Regressão Logística (labelencoder + onehotencoder)
 0.8184 - Regressão Logística (labelencoder + escalonamento)
 
+0.8507 - SVM Linear (labelencoder + onehotencoder + escalonamento)
+?      - SVM Linear (labelencoder)
+?      - SVM Linear (labelencoder + onehotencoder)
+0.8507 - SVM Linear (labelencoder + escalonamento)
+
