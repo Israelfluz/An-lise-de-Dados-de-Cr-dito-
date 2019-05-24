@@ -23,3 +23,9 @@ ___________________________
 0.7746 - KNN 5 (labelencoder)
 0.7760 - KNN 5 (labelencoder + onehotencoder)
 0.8219 - KNN 5 (labelencoder + escalonamento)
+
+0.8495 - Regressão Logística (labelencoder + onehotencoder + escalonamento)
+0.7909 - Regressão Logística (labelencoder)
+0.7954 - Regressão Logística (labelencoder + onehotencoder)
+0.8184 - Regressão Logística (labelencoder + escalonamento)
+

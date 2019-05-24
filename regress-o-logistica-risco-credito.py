@@ -1,6 +1,6 @@
 import pandas as pd
 
-base = pd.read_csv('risco_credito2.csv')
+base = pd.read_csv('risco-credito2.csv')
 previsores = base.iloc[:,0:4].values
 classe = base.iloc[:,4].values
                   
