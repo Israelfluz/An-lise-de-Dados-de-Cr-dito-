@@ -34,3 +34,8 @@ ___________________________
 ?      - SVM Linear (labelencoder + onehotencoder)
 0.8507 - SVM Linear (labelencoder + escalonamento)
 
+0.8292 - Rede Neural (labelencoder + onehotencoder + escalonamento)
+0.7887 - Rede Neural (labelencoder)
+0.3549 - Rede Neural (labelencoder + onehotencoder)
+0.8421 - Rede Neural (labelencoder + escalonamento)
+
