@@ -34,7 +34,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.neural_network import MLPClassifier
 
 # CLASSIFICADOR COM SVM
-classificadorSVM = SVC(kernel = 'rbf', C = 2.0)
+classificadorSVM = SVC(kernel = 'rbf', C = 2.0, probability = True)
 
 # TREINAMENTO. MÉTODO FIT, EFETIVAMENTE GERA O CLASSIFICADOR
 classificadorSVM.fit(previsores, classe)
