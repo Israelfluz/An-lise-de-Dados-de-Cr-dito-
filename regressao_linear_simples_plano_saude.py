@@ -31,8 +31,41 @@ from sklearn.linear_model import LinearRegression
 regressor = LinearRegression()
 regressor.fit(x, y)
 
-# b0
+# b1
 regressor.intercept_
 
-# b1
+# b0
 regressor.coef_  
+
+# IMPORTANTODO BIBLIOTECA PARA GERAR GRAFICOS 
+import matplotlib.pyplot as plt
+plt.scatter(x, y)
+
+# VISUALIZANDO E LINHA DA REGRESSÃO
+plt.plot(x, regressor.predict(x), color = 'red')
+
+# ====== CRIANDO TÍTULO PARA O GRAFICO ======
+plt.title('Regressão linear simples')
+
+# ====== CRIANDO TÍTULO PARA O EIXO X DO GRAFICO =====
+plt.xlabel('Idade')
+
+# ====== CRIANDO TÍTULO PARA O EIXO Y DO GRAFICO =====
+plt.ylabel('Custo')
+
+# ====== CALCULANDO O CUSTO DO PLANO DE SAÚDE (PREVISÃO))
+previsao1 = regressor.intercept_ + regressor.coef_*[40]
+previsao2 = regressor.predict([[40]])
+
+# ==== VISUALIZANDO O VALOR DE SCORE - COMO ESTA SE COMPORTANDO O PREVISOR ====
+score = regressor.score(x, y)
+
+#==================================================================================
+#== VISUALIZANDO OS VALORES RESIDUAIS QUE SÃO AS DISTÂNCIAS DOS PONTOS PARA A LINHA
+#==================================================================================
+
+# IMPORTANDO BIBLIOTECA 
+from yellowbrick.regressor import ResidualsPlot
+visualizador = ResidualsPlot(regressor)
+visualizador.fit(x, y)
+visualizador.poof()
