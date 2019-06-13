@@ -16,7 +16,7 @@ regressor1.fit(X, y)
 score1 = regressor1.score(X, y)
 
 # previsão do valor do plano de saúde para uma pessoa com 40 anos de idade
-regressor1.predict[[40]]
+regressor1.predict([[40]])
 
 # Visualização do gráfico
 import matplotlib.pyplot as plt
@@ -43,7 +43,7 @@ regressor2 = LinearRegression()
 regressor2.fit(X_poly, y)
 score2 = regressor2.score(X_poly, y)
 
-regressor2.predict(poly.transform(np.array(40).reshape(1, -1)))
+regressor2.predict(poly.transform([[40]]))
 
 plt.scatter(X, y)
 plt.plot(X, regressor2.predict(poly.fit_transform(X)), color = 'red')
