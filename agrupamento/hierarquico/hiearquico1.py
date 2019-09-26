@@ -1,7 +1,7 @@
 # ===== Importação da biblioteca para visualização de graficos =====
 import matplotlib.pyplot as plt
 
-# ===== Importação da biblioteca Numpy =====
+# ===== Importação da biblioteca para computação científica =====
 import numpy as np
 
 # ===== Bilioteca Scipy para calculos científicos e estatística =====

@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 base = pd.read_csv('census.csv')
 
@@ -29,7 +30,7 @@ previsores = scaler.fit_transform(previsores)
 from sklearn.model_selection import train_test_split
 previsores_treinamento, previsores_teste, classe_treinamento, classe_teste = train_test_split(previsores, classe, test_size=0.15, random_state=0)
 
-import keras
+from tensorflow import keras
 from keras.models import Sequential
 from keras.layers import Dense
 classificador = Sequential()
@@ -37,10 +38,10 @@ classificador.add(Dense(units = 8, activation = 'relu', input_dim = 14))
 classificador.add(Dense(units = 8, activation = 'relu'))
 classificador.add(Dense(units = 1, activation = 'sigmoid'))
 classificador.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accuracy'])
-classificador.fit(previsores_treinamento, classe_treinamento, batch_size = 10, epochs = 100)
 previsoes = classificador.predict(previsores_teste)
 previsoes = (previsoes > 0.5)
 
 from sklearn.metrics import confusion_matrix, accuracy_score
-precisao = accuracy_score(classe_teste, previsoes)
+prclassificador.fit(previsores_treinamento, classe_treinamento, batch_size = 10, epochs = 100)
+ecisao = accuracy_score(classe_teste, previsoes)
 matriz = confusion_matrix(classe_teste, previsoes)

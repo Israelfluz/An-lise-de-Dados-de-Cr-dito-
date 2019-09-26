@@ -40,6 +40,3 @@ previsoes = scaler_y.inverse_transform(previsoes)
 # ===== Outra maneira de visualizar a diferença =====
 from sklearn.metrics import mean_absolute_error
 mae = mean_absolute_error(y_teste, previsoes)
-
-
-
