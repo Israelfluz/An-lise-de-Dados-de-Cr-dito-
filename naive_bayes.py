@@ -78,7 +78,7 @@ previsoes = modelo.predict(X_teste)
 accuracy_score(y_teste, previsoes)
 
 
-# Matrix de confusão
+# Matriz de confusão
 confusao = ConfusionMatrix(modelo, classes=['None','Severe','Mild','Moderate'])
 confusao.fit(X_treinamento, y_treinamento)
 confusao.score(X_teste, y_teste)
