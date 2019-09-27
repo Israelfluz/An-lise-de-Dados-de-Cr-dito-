@@ -74,8 +74,11 @@ modelo.fit(X_treinamento, y_treinamento) # Aqui é criado a tabela de probabilid
 
 previsoes = modelo.predict(X_teste)
 
+# Realizando um comparativo entre y_teste e os resutados da variável previsões e ter o percentual 
 accuracy_score(y_teste, previsoes)
 
+
+# Matrix de confusão
 confusao = ConfusionMatrix(modelo, classes=['None','Severe','Mild','Moderate'])
 confusao.fit(X_treinamento, y_treinamento)
 confusao.score(X_teste, y_teste)
