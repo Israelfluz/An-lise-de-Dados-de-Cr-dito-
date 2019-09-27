@@ -20,12 +20,19 @@ from yellowbrick.classifier import ConfusionMatrix
 
 # Carregando a base de dados para previsão do risco de seguro de veículo
 base = pd.read_csv('insurance.csv') 
-base = base.drop(columns = ['Unnamed: 0'])
-base.Accident.unique()
+base = base.drop(columns = ['Unnamed: 0']) # Apagando a coluna Unnamed
+base.Accident.unique() # Verificando as classes dentro desse atributo
 
+
+# Atributos previsores
 X = base.iloc[:,[0,1,2,3,4,5,6,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26]].values
+
+
+# 
 y = base.iloc[:, 7].values
 
+
+# Transformando o atributo categórico para um atributo numérico
 labelencoder = LabelEncoder()
 X[:,0] = labelencoder.fit_transform(X[:,0])
 X[:,1] = labelencoder.fit_transform(X[:,1])
@@ -54,11 +61,16 @@ X[:,23] = labelencoder.fit_transform(X[:,23])
 X[:,24] = labelencoder.fit_transform(X[:,24])
 X[:,25] = labelencoder.fit_transform(X[:,25])
 
+
+# Dividindo a base de dados em treinamentp e teste
 X_treinamento, X_teste, y_treinamento, y_teste = train_test_split(X, y,
                                                                   test_size = 0.3,
                                                                   random_state = 0)
+
+
+
 modelo = GaussianNB()
-modelo.fit(X_treinamento, y_treinamento)
+modelo.fit(X_treinamento, y_treinamento) # Aqui é criado a tabela de probabilidade no naive bayes
 
 previsoes = modelo.predict(X_teste)
 
