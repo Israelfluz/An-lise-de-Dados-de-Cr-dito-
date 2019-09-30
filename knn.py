@@ -8,7 +8,7 @@ from sklearn.neighbors import KNeighborsClassifier
 iris = datasets.load_iris()
 
 
-# Selecionando uma das plantas para fazer o calculo da distância
+# Selecionando uma das plantas para fazer o cálculo da distância
 iris_teste = iris.data[0,:]
 
 # Buscando a classe (target) correta da planta 
@@ -21,7 +21,7 @@ X = iris.data[1:150,:]
 y = iris.target[1:150]
 
 
-# Variável Knn que recebe o KNeighborsClassifier que fará o calculo de singularidade (os vizinhos mais próximos)
+# Variável Knn que recebe o KNeighborsClassifier que fará o cálculo de singularidade (os vizinhos mais próximos)
 knn = KNeighborsClassifier(n_neighbors = 3)
 knn.fit(X, y) # Aqui acontece o treinamento 
 
