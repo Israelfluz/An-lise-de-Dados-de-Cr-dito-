@@ -20,6 +20,8 @@ from sklearn.metrics import confusion_matrix
 from keras.datasets import mnist
 
 
+(X_treinamento, y_treinamento), (X_teste, y_teste) = mnist.load_data()
+
 # Dividindo a base de dados em treinamentp e teste
 
 
@@ -42,6 +44,7 @@ plt.subplot(2, 2, 4)
 plt.imshow(X_treinamento[4], cmap = 'gray')
 plt.title(y_treinamento[4])
 
+# Pré-processamento
 X_treinamento = X_treinamento.reshape((len(X_treinamento), np.prod(X_treinamento.shape[1:])))
 X_teste = X_teste.reshape((len(X_teste), np.prod(X_teste.shape[1:])))
 
@@ -61,13 +64,13 @@ y_teste = np_utils.to_categorical(y_teste, 10)
 # Construção do modelo da rede neural
 # 784 - 64 - 64 - 64 - 10
 modelo = Sequential()
-modelo.add(Dense(units = 64, activation = 'relu', input_dim = 784))
-modelo.add(Dropout(0.2))
-modelo.add(Dense(units = 64, activation = 'relu'))
-modelo.add(Dropout(0.2))
-modelo.add(Dense(units = 64, activation = 'relu'))
-modelo.add(Dropout(0.2))
-modelo.add(Dense(units = 10, activation = 'softmax'))
+modelo.add(Dense(units = 64, activation = 'relu', input_dim = 784)) # Primeira camada (entrada) do tipo densa
+modelo.add(Dropout(0.2)) # A primeira camada recebe uma camada com dropout que zera uma porção do neurônios para evitar overfiting
+modelo.add(Dense(units = 64, activation = 'relu')) # Segunda camada densa
+modelo.add(Dropout(0.2)) # A segunda camada recebe uma camada com dropout que zera uma porção do neurônios para evitar overfiting
+modelo.add(Dense(units = 64, activation = 'relu')) # Terceira camada
+modelo.add(Dropout(0.2)) # A terceira camada recebe uma camada com dropout que zera uma porção do neurônios para evitar overfiting
+modelo.add(Dense(units = 10, activation = 'softmax')) # Camada de saída
 
 # Sumário do modelo da rede neural
 modelo.summary()
@@ -90,11 +93,11 @@ plt.plot(historico.history['val_acc'])
 previsoes = modelo.predict(X_teste)
 y_teste_matriz = [np.argmax(t) for t in y_teste]
 y_previsoes_matriz = [np.argmax(t) for t in previsoes]
-confusao = confusion_matrix(y_teste_matriz, y_previsoes_matriz)
+confusao = confusion_matrix(y_teste_matriz, y_previsoes_matriz) # Comparativo entre y_previsões e y_teste_matriz)
 
-
+# Fazendo uma nova classificação
 y_treinamento[20]
 novo = X_treinamento[20]
-novo = np.expand_dims(novo, axis = 0)
+novo = np.expand_dims(novo, axis = 0) # Colocando no formato de linha
 pred = modelo.predict(novo)
 
