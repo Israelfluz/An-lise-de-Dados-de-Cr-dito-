@@ -1,6 +1,6 @@
 from django import forms
 
-
+# Definindo classe para selecionar idade
 class SelecioneIdade(forms.Form):
     MY_CHOICES = (
         ('0', 'Adult'),
@@ -11,9 +11,9 @@ class SelecioneIdade(forms.Form):
         label='Selecione a idade',
         choices=MY_CHOICES,
         widget=forms.Select(
-            attrs={'class': 'styled-select yellow rounded'}))
+            attrs={'class': 'styled-select yellow rounded'})) # Definindo as cores da interface gráfica
 
-
+# Definindo classe para o grau de risco
 class GrauRisco(forms.Form):
     MY_CHOICES = (
         ('0', 'Adventurous'),
@@ -27,7 +27,7 @@ class GrauRisco(forms.Form):
         widget=forms.Select(
             attrs={'class': 'styled-select yellow rounded'}))
 
-
+# Definindo classe para o modelo do veículo
 class ModeloVeiculo(forms.Form):
     MY_CHOICES = (
         ('0', 'Economy'),
